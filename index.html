@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="app.js" type="module" defer></script>
+<body>
+    <style>
+        body{
+            margin: 0;
+        }
+        .container{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            
+        }
+        .containerLogo{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo{
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            top: 10px;
+        }
+        .conatinerLeft{
+            height: 100%;
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+            background-color: #161528;
+        }
+        .conatinerLeft h2{
+            color: white;
+            text-align: center;
+            font-size: 3rem;
+            margin: 0;
+            margin-bottom: 10px;
+        }
+        .cont{
+            height: 100%;
+            width: 100%;
+            display: grid;
+            place-content: center;
+        }
+        .containerButtons{
+            
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .containerTitle{
+            padding: 5px;
+            background-color: #161528;
+        }
+        .containerTitle h1{
+            text-align: center;
+            color: white;
+            font-size: 3rem;
+            }
+        .containerInfo{
+            width: 100%;
+            background-image: url(./BDEDXKSYJNEHTBIR6VZFBKRT3E.jpg);
+            background-size: cover;
+        }
+        .showInfo{
+            width: 100%;
+            height: 86%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: auto;
+        }
+        /* button{
+            margin: 15px 0;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            font-size: 1rem;
+        } */
+        /*** ESTILOS BOTÓN GROW ELLIPSE ***/
+.ov-btn-grow-ellipse {
+    margin: 15px 0;
+font-size: 1.2rem;
+  background: #fff; /* color de fondo */
+  color: #25227e; /* color de fuente */
+  border: 2px solid #25227e; /* tamaño y color de borde */
+  padding: 16px 20px;
+  border-radius: 20px; /* redondear bordes */
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+}
+.ov-btn-grow-ellipse:hover {
+  color: #fff;/* color de fuente hover */
+  cursor: pointer;
+}
+.ov-btn-grow-ellipse::after {
+  content: "";
+  background: #25227e; /* color de fondo hover */
+  position: absolute;
+  z-index: -1;
+  padding: 16px 20px;
+  display: block;
+  border-radius: 50%;
+  left: -50%;
+  right: -50%;
+  top: -150%;
+  bottom: -150%;
+  transform: scale(0, 0);
+  transition: all 0.4s ease;
+}
+.ov-btn-grow-ellipse:hover::after {
+  transition: all 0.6s ease-out;
+  transform: scale(1, 1);
+}
+form-recluta{
+    background-color: rgba(0, 0, 0, 0.548);
+        border-radius: 10px;
+}
+form-team{
+    background-color: rgba(0, 0, 0, 0.548);
+        border-radius: 10px;
+}
+form-skill{
+    background-color: rgba(0, 0, 0, 0.548);
+        border-radius: 10px;
+}
+form-modulo{
+    background-color: rgba(0, 0, 0, 0.548);
+        border-radius: 10px;
+}
+form-evaluacion{
+    background-color: rgba(0, 0, 0, 0.548);
+        border-radius: 10px;
+}
+    </style>
+    <div class="container">
+        
+        <div class="conatinerLeft">
+            <div class="containerLogo">
+                <img class="logo" src="./Logo.png" alt="">
+            </div>
+            <div class="cont">
+                <h2>Secciones</h2>
+                <div class="containerButtons">
+                    <button class="ov-btn-grow-ellipse" id="btn-reclutas">Reclutas</button>
+                    <button class="ov-btn-grow-ellipse" id="btn-team">Teams</button>
+                    <button class="ov-btn-grow-ellipse" id="btn-skills">skills</button>
+                    <button class="ov-btn-grow-ellipse" id="btn-modulo">Modulos skills</button>
+                    <button class="ov-btn-grow-ellipse" id="btn-evaluacion">Evaluacion</button>
+                </div>
+            </div>
+           
+        </div>
+        <div class="containerInfo">
+            <div class="containerTitle">
+                <h1>Centro Aeroespacial</h1>
+            </div>
+            
+            <div class="showInfo"></div>
+        </div>
+        
+    </div>
+  <!--   <form-recluta></form-recluta>
+    <form-team></form-team> -->
+</body>
+</html>

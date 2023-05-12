@@ -1,0 +1,90 @@
+{
+  "Reclutas": [
+    {
+      "nameRecluta": "carlos",
+      "edad": "21",
+      "telefono": "3175049475",
+      "email": "dcds@gmail.com",
+      "direccion": "sddsfsdfs",
+      "fechaNacimiento": "2023-05-01",
+      "numIdentificacion": "12264554156",
+      "fechaIngreso": "2023-01-01",
+      "id_team": "4",
+      "id": 1
+    },
+    {
+      "nameRecluta": "carlos",
+      "edad": "21",
+      "telefono": "32321",
+      "email": "dcds@gmail.com",
+      "direccion": "sddsfsdfs",
+      "fechaNacimiento": "2023-05-02",
+      "numIdentificacion": "15191",
+      "fechaIngreso": "2023-05-03",
+      "id_team": "4",
+      "id": 2
+    },
+    {
+      "nameRecluta": "sdsd",
+      "edad": "21",
+      "telefono": "32321",
+      "email": "dcds@gmail.com",
+      "direccion": "sddsfsdfs",
+      "fechaNacimiento": "2023-05-02",
+      "numIdentificacion": "4545",
+      "fechaIngreso": "2023-05-02",
+      "id_team": "5",
+      "id": 3
+    }
+  ],
+  "Team": [
+    {
+      "nombre": "Sputnik",
+      "trainer": "Miguel",
+      "id": 1
+    },
+    {
+      "nombre": "Artemis",
+      "trainer": "verment",
+      "id": 2
+    },
+    {
+        "nombre": "Apolo",
+        "trainer": "Johlver Pardo",
+        "id": 2
+      }
+  ],
+  "skills": [
+    {
+        "nombre": "Html",
+        "id": 1
+      },
+    {
+      "nombre": "Css",
+      "id": 2
+    },
+    {
+      "nombre": "JavaScript",
+      "id": 3
+    } 
+  ],
+  "moduloSkill": [
+    {
+      "nombre": "Desarrollo web",
+      "id_skill": [
+        "1",
+        "2",
+        "3"
+      ],
+      "id": 1
+    }
+   
+  ],
+  "evaluacion": [
+    {
+      "id_recluta": 1,
+      "id_modulo": 1,
+      "nota": 4.5
+    }
+  ]
+}

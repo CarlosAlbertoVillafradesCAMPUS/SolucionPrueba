@@ -1,0 +1,212 @@
+<fieldset>
+    <h2>Agregar Nuevo Modulo</h2>
+    <form id="formularioModulo">
+        <div class="container">
+            <div class="con-input">
+                <label for="nombre">Nombre del Modulo</label>
+        <input required type="text" name="nombre" placeholder="Nombre del modulo"> <br><br>
+            </div>
+            <div>
+                <section>
+            
+                    <label for="id_skill">skills del modulo</label>
+                    <div id="containerSkills">
+        
+                    </div>
+                </section>
+            </div>
+        </div>
+        
+        
+        <div class="containerButtons">
+            <button type="submit" id="Agregar">Agregar</button>
+        <button type="button" id="btnRegistro">Mostrar Registro</button>
+        </div>
+    </form>
+</fieldset>
+<section>
+        <div class="containerFiltros">
+            <h2>Filtros</h2>
+            <div class="containerInputFiltro">
+                <div>
+                    <label for="selectSkillFilter">filtrar modulos que se encuentras asignado a las skills: </label>
+                    <div id="selectSkillFilter">
+                
+                    </div>
+                    <button id="filtrarSkills">filtrar</button>
+                </div>
+            </div>
+        </div>
+</section>
+<div class="registro">
+    
+</div>
+<div>
+   
+
+<style>
+    fieldset{
+        border: none;
+    }
+    h2{
+        font-size: 2rem;
+        color: white;
+        text-align: center;
+        margin: 0;
+        margin-bottom: 25px;
+    }
+    .registro{
+        width: 100%;
+        
+        display: grid;
+        place-content: center;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .left{
+        margin-right: 2rem;
+    }
+    .con-input{
+        display: flex;
+        flex-direction: column;
+    }
+    label{
+        font-size: 1.5rem;
+        color: white;
+        margin-bottom: 3px;
+    }
+    .con-input input{
+  border: none;
+  font-size: 1.2rem;
+  height: 0.4rem;
+  outline: 0;
+  padding: 15px;
+  border-radius: 10px;
+  background-color:#25227ed2;
+  color: white;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    .con-select{
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        text-align: center;
+    }
+    .con-select select{
+        border-radius: 10px;
+        padding: 5px;
+        background-color:#25227ed2;
+        color: white;
+        font-size: 1.1rem;
+    }
+    .containerButtons{
+        margin-top: 10px;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+    button:nth-child(1){
+        margin-right: 15px;
+    }
+    button{
+        font-size: 1.2rem;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 8px;
+        background-color: white;
+        color: #25227ed2;
+        transition: all .5s ease;
+        margin-bottom: 10px;
+    }
+    button:hover{
+        cursor: pointer;
+        background-color: #25227ed2;
+        color: white;
+        transition: all .5s ease;
+    }
+    .containerFiltros{
+        width: 100%;
+        text-align: center;
+
+    }
+    .containerFiltros h2{
+        color: white;
+        font-size: 2rem;
+        text-align: center;
+    }
+    .containerInputFiltro{
+        display: flex;
+        flex-direction: column;
+    }
+    .containerInputFiltro .button{
+        font-size: 1.2rem;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 8px;
+        background-color: white;
+        color: #25227ed2;
+        transition: all .5s ease;
+        margin-bottom: 10px;
+    }
+    .containerInputFiltro .button:hover{
+        cursor: pointer;
+        background-color: #25227ed2;
+        color: white;
+        transition: all .5s ease;
+    }
+    .containerInputFiltro select{
+        border-radius: 10px;
+        padding: 5px;
+        background-color:#25227ed2;
+        color: white;
+        font-size: 1.1rem;
+    }
+    .titleRegistro{
+        font-size: 2rem;
+        margin: 0;
+        margin-top: 20px;
+        margin-bottom: 5px;
+    }
+    table{width: 700px;
+         border-collapse: collapse;
+         margin-bottom: 15px;
+        }
+
+td, th{ border: 1px solid transparent;
+     height: 30px;
+    padding: 0 30px;}
+
+th{ background: #25227ed2;
+     font-weight: bold; 
+     color: white; }
+
+td{ background: #FAFAFA;
+     text-align: center; }
+
+tr:nth-child(even) td{ 
+    background: #8f8ab4; }  
+
+tr:nth-child(odd) td{ 
+    background: #FEFEFE; }   
+.cont-eliminar{
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}  
+.eliminar{
+    margin: 0;
+    margin: 5px;
+    background-color: #25227ed2;
+    color: white;
+}
+.eliminar:hover{
+    background-color: white;
+    color: #25227ed2;
+}
+</style>
