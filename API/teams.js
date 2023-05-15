@@ -7,7 +7,7 @@ const PostTeam = async (data) => {
         headers: headers,
         body: JSON.stringify(data)
     }
-    return await( await fetch(`http://localhost:${puerto}/Team`, config)).json()
+    return await( await fetch(`http://localhost:${puerto}/teams`, config)).json()
 }
 
 const GetTeams = async () => {
@@ -15,7 +15,7 @@ const GetTeams = async () => {
         method: "GET",
         headers: headers,
     }
-    return await( await fetch(`http://localhost:${puerto}/Team`, config)).json()
+    return await( await fetch(`http://localhost:${puerto}/teams`, config)).json()
 }
 
 const DeleteTeam = async (id) => {
@@ -23,7 +23,7 @@ const DeleteTeam = async (id) => {
         method: "DELETE",
         headers: headers,
     }
-    return await( await fetch(`http://localhost:${puerto}/Team/${id}`, config)).json()
+    return await( await fetch(`http://localhost:${puerto}/teams/${id}`, config)).json()
 }
 
 export default {

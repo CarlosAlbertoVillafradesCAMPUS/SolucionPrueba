@@ -30,7 +30,7 @@ export default class formRecluta extends HTMLElement{
         wsReclutas.postMessage({function:"GetReclutas"})
 
         wsReclutas.addEventListener("message", (evento) => {
-            let new_data = evento.data.filter(recluta => recluta.id_team == team)
+            let new_data = evento.data.filter(recluta => recluta.teamId == team)
             const wsShow = new Worker("storage/wsShow.js", {type:"module"});
             wsShow.postMessage({function:"showRegistroReclutas", data: new_data})
             wsShow.addEventListener("message", (event) => {
@@ -53,6 +53,7 @@ export default class formRecluta extends HTMLElement{
         wsReclutas.postMessage({function:"FilterMeses"})
 
         wsReclutas.addEventListener("message", (evento) => {
+            console.log(evento.data);
             const wsShow = new Worker("storage/wsShow.js", {type:"module"});
             wsShow.postMessage({function:"showRegistroReclutas", data: evento.data})
             wsShow.addEventListener("message", (event) => {
@@ -127,6 +128,7 @@ export default class formRecluta extends HTMLElement{
     agregarRecluta(e){
         e.preventDefault()
         const dataForm = Object.fromEntries(new FormData(e.target))
+        dataForm.teamId = parseInt(dataForm.teamId)
         console.log(dataForm);
         const wsReclutas = new Worker("storage/wsReclutas.js", {type:"module"})
         wsReclutas.postMessage({function:"PostRecluta", data: dataForm})

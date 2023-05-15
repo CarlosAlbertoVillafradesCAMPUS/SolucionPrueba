@@ -1,5 +1,5 @@
 {
-  "Reclutas": [
+  "reclutas": [
     {
       "nameRecluta": "carlos",
       "edad": "21",
@@ -9,7 +9,7 @@
       "fechaNacimiento": "2023-05-01",
       "numIdentificacion": "12264554156",
       "fechaIngreso": "2023-01-01",
-      "id_team": "4",
+      "teamId": 2,
       "id": 1
     },
     {
@@ -21,7 +21,7 @@
       "fechaNacimiento": "2023-05-02",
       "numIdentificacion": "15191",
       "fechaIngreso": "2023-05-03",
-      "id_team": "4",
+      "teamId": 1,
       "id": 2
     },
     {
@@ -33,11 +33,11 @@
       "fechaNacimiento": "2023-05-02",
       "numIdentificacion": "4545",
       "fechaIngreso": "2023-05-02",
-      "id_team": "5",
+      "teamId": 3,
       "id": 3
     }
   ],
-  "Team": [
+  "teams": [
     {
       "nombre": "Sputnik",
       "trainer": "Miguel",
@@ -49,16 +49,16 @@
       "id": 2
     },
     {
-        "nombre": "Apolo",
-        "trainer": "Johlver Pardo",
-        "id": 2
-      }
+      "nombre": "Apolo",
+      "trainer": "Johlver Pardo",
+      "id": 3
+    }
   ],
   "skills": [
     {
-        "nombre": "Html",
-        "id": 1
-      },
+      "nombre": "Html",
+      "id": 1
+    },
     {
       "nombre": "Css",
       "id": 2
@@ -66,7 +66,7 @@
     {
       "nombre": "JavaScript",
       "id": 3
-    } 
+    }
   ],
   "moduloSkill": [
     {
@@ -78,7 +78,6 @@
       ],
       "id": 1
     }
-   
   ],
   "evaluacion": [
     {

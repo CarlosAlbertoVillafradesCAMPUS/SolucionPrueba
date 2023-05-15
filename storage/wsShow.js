@@ -77,6 +77,7 @@ export let wsShow = {
         return plantilla
     },
     showRegistroReclutas(arg){
+        console.log(arg);
         let plantilla = `
         <div>
         <h2 class="titleRegistro">Registro de los Reclutas</h2>
@@ -96,6 +97,7 @@ export let wsShow = {
                 </thead>
                 <tbody>
                 ${arg.map((val,id) => {
+                    console.log(val.team);
                     let partPlantilla = `
                     <tr>
                         <td>${val.id}</td>
@@ -105,7 +107,7 @@ export let wsShow = {
                         <td>${val.direccion}</td>
                         <td>${val.fechaNacimiento}</td>
                         <td>${val.numIdentificacion}</td>
-                        <td>${val.id_team}</td>
+                        <td>${(val.team) ?val.team.nombre :val.teamId}</td>
                         <td class="cont-eliminar"><button class="eliminar" id="${val.id}">Eliminar</button></td>
                     </tr>
                     `

@@ -7,14 +7,14 @@ const PostRecluta = async (data) => {
         headers: headers,
         body: JSON.stringify(data)
     }
-    return await( await fetch(`http://localhost:${puerto}/Reclutas`, config)).json()
+    return await( await fetch(`http://localhost:${puerto}/reclutas`, config)).json()
 }
 const GetReclutas = async () => {
     const config = {
         method: "GET",
         headers: headers,
     }
-    return await( await fetch(`http://localhost:${puerto}/Reclutas`, config)).json()
+    return await( await fetch(`http://localhost:${puerto}/reclutas?_expand=team`, config)).json()
 }
 
 const DeleteReclutas = async (id) => {
@@ -22,7 +22,7 @@ const DeleteReclutas = async (id) => {
         method: "DELETE",
         headers: headers,
     }
-    return await( await fetch(`http://localhost:${puerto}/Reclutas/${id}`, config)).json()
+    return await( await fetch(`http://localhost:${puerto}/reclutas/${id}`, config)).json()
 }
 
 const FilterMeses = async (id) => {
@@ -30,7 +30,7 @@ const FilterMeses = async (id) => {
         method: "GET",
         headers: headers,
     }
-    return await( await fetch(`http://localhost:${puerto}/Reclutas/?fechaIngreso_gte=2023-03-08`, config)).json()
+    return await( await fetch(`http://localhost:${puerto}/reclutas/?fechaIngreso_gte=2023-03-08`, config)).json()
 }
 
 export default {
