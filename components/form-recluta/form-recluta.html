@@ -1,3 +1,4 @@
+<div class="principal">
 <fieldset>
     <h2>Agregar nuevo Recluta</h2>
     <form id="formularioReclutas">
@@ -57,26 +58,38 @@
         
     </form>
 </fieldset>
-<div class="containerFiltros">
-    <h2>Filtros</h2>
-    <div class="containerInputFiltro">
-        <div>
-            <label for="mayorMeses">Reclutas con mas de 2 meses en el programa--</label>
-            <input class="button" type="button" value="Filtrar" id="mayorMeses">
+<div class="containerRegistro">
+    <div class="containerFiltros">
+        <div style="width: 100%;">
+            <div style="width: 100%; position:relative">
+                    <input class="btnVolver" type="button" value="Volver">
+                <div style="width: 100%; display:flex; justify-content:center">
+                    <h2>Filtros</h2>
+                </div>
+            </div>
+            
+            
         </div>
-        <div>
-            <label for="teams">filtrar por Team</label>
-            <select name="teams" id="selectTeamFilter"></select></div>
-        </div>
-</div>
-    
-    
-    
-    
-<div class="registro">
-    
+        <div class="containerInputFiltro">
+            <div>
+                <label for="mayorMeses">-Reclutas con mas de 2 meses en el programa--</label>
+                <input class="button" type="button" value="Filtrar" id="mayorMeses">
+            </div>
+            <div>
+                <label for="teams">-filtrar por Team</label>
+                <select name="teams" id="selectTeamFilter"></select></div>
+            </div>
+            <div>
+                <input type="buscar" placeholder="Buscar Recluta" id="buscador">
+            </div>
+    </div>   
+        
+    <div class="registro">
+        
+    </div>
 </div>
 
+</div>
 <style>
     fieldset{
         border: none;
@@ -88,9 +101,9 @@
         margin: 0;
         margin-bottom: 25px;
     }
+    
     .registro{
         width: 100%;
-        
         display: grid;
         place-content: center;
     }
@@ -161,10 +174,21 @@
         color: white;
         transition: all .5s ease;
     }
+   
+    .containerRegistro{
+        display: none;
+    }
     .containerFiltros{
         width: 100%;
         text-align: center;
 
+    }
+    #buscador{
+        width: 21rem;
+        height: 25px;
+        margin: 10px 0;
+        font-size: 1rem;
+        border-radius: 8px;
     }
     .containerFiltros h2{
         color: white;
@@ -240,5 +264,24 @@ tr:nth-child(odd) td{
 .eliminar:hover{
     background-color: white;
     color: #25227ed2;
+}
+.btnVolver{
+    position:absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #25227ed2;
+    color: white;
+    transition: all .5s ease;
+    margin-bottom: 10px;
+}
+.btnVolver:hover{
+    cursor: pointer;
+    background-color:white;
+    color: #25227ed2;
+    transition: all .5s ease;
 }
 </style>

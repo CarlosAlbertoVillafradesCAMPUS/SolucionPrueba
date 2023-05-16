@@ -1,5 +1,6 @@
 {
     "conventionalCommits.scopes": [
-        "registros"
+        "registros",
+        "webComponents"
     ]
 }

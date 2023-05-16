@@ -33,9 +33,19 @@ const FilterMeses = async (id) => {
     return await( await fetch(`http://localhost:${puerto}/reclutas/?fechaIngreso_gte=2023-03-08`, config)).json()
 }
 
+const FilterReclutas = async (info) => {
+    const config = {
+        method: "GET",
+        headers: headers,
+    }
+    return await( await fetch(`http://localhost:${puerto}/reclutas?nameRecluta_like=${info}`, config)).json()
+}
+
+
 export default {
     PostRecluta,
     GetReclutas,
     DeleteReclutas,
-    FilterMeses
+    FilterMeses,
+    FilterReclutas
 }

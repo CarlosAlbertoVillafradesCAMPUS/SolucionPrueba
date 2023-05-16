@@ -10,9 +10,13 @@ export default class formRecluta extends HTMLElement{
        
     } 
     handleFilter(e){
-        (e.type === "click")
-        ? this.filtrarMeses(e)
-        : this.filtrarTeam(e)
+        if(e.type === "click"){
+            this.filtrarMeses(e)
+        }else if(e.type === "input"){
+            this.search(e)
+        }else{
+            this.filtrarTeam(e)
+        }
     }
     handleEliminar(e){
         (e.type === "click")
@@ -24,8 +28,48 @@ export default class formRecluta extends HTMLElement{
         ?this.agregarRecluta(e) 
         :this.mostrarRecluta()
     }
+    handleVolver(e){
+        (e.type === "click")
+        ? this.volverForm()
+        : undefined
+    }
+    volverForm(){
+        this.fidelset.style.display = "block"
+        this.containerRegistro.style.display = "none"
+    }
+
+    search(e){
+        let valueInput = e.target.value;
+        if(e.target.value == ""){
+            this.mostrarRecluta()
+        }else{
+            const wsReclutas = new Worker("storage/wsReclutas.js", {type:"module"})
+        wsReclutas.postMessage({function:"FilterReclutas", data: valueInput})
+
+        wsReclutas.addEventListener("message", (evento) => {
+            console.log(evento.data);
+            const wsShow = new Worker("storage/wsShow.js", {type:"module"});
+            wsShow.postMessage({function:"showRegistroReclutas", data: evento.data})
+            wsShow.addEventListener("message", (event) => {
+                this.resgistro = this.shadowRoot.querySelector(".registro");
+                this.resgistro.innerHTML = event.data
+                wsShow.terminate();
+                this.eliminar = this.shadowRoot.querySelectorAll(".eliminar");
+                this.eliminar.forEach((val,id) => {
+                
+                    val.addEventListener("click", this.handleEliminar.bind(this))
+                })
+                
+            })
+            wsReclutas.terminate()
+        })
+        }
+        
+    }
     filtrarTeam(e){
+        if(e.target.value){}
         let team = e.target.value
+        console.log(team);
         const wsReclutas = new Worker("storage/wsReclutas.js", {type:"module"})
         wsReclutas.postMessage({function:"GetReclutas"})
 
@@ -94,6 +138,10 @@ export default class formRecluta extends HTMLElement{
             const wsShow = new Worker("storage/wsShow.js", {type:"module"});
             wsShow.postMessage({function:"showRegistroReclutas", data: e.data})
             wsShow.addEventListener("message", (event) => {
+                this.fidelset = this.shadowRoot.querySelector("fieldset");
+                this.fidelset.style.display = "none"
+                this.containerRegistro = this.shadowRoot.querySelector(".containerRegistro");
+                this.containerRegistro.style.display = "block"
                 this.resgistroTeams = this.shadowRoot.querySelector(".registro");
                 this.resgistroTeams.innerHTML = event.data
                 wsShow.terminate();
@@ -148,6 +196,10 @@ export default class formRecluta extends HTMLElement{
             this.btnMayorMeses.addEventListener("click", this.handleFilter.bind(this));
             this.selectTeamFilter = this.shadowRoot.querySelector("#selectTeamFilter");
             this.selectTeamFilter.addEventListener("change", this.handleFilter.bind(this));
+            this.buscador = this.shadowRoot.querySelector("#buscador");
+            this.buscador.addEventListener("input", this.handleFilter.bind(this));
+            this.btnVolver = this.shadowRoot.querySelector(".btnVolver");
+            this.btnVolver.addEventListener("click", this.handleVolver.bind(this) )
             this.showTeams()
         })
     }
