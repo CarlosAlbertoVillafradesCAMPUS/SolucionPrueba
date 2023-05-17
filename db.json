@@ -66,9 +66,13 @@
     {
       "nombre": "JavaScript",
       "id": 3
+    },
+    {
+      "nombre": "react",
+      "id": 4
     }
   ],
-  "moduloSkill": [
+  "moduloSkills": [
     {
       "nombre": "Desarrollo web",
       "id_skill": [
@@ -77,13 +81,35 @@
         "3"
       ],
       "id": 1
+    },
+    {
+      "nombre": "react",
+      "id_skill": [
+        "3"
+      ],
+      "id": 2
+    },
+    {
+      "nombre": "react",
+      "id_skill": [
+        "1",
+        "2"
+      ],
+      "id": 3
     }
   ],
   "evaluacion": [
     {
-      "id_recluta": 1,
-      "id_modulo": 1,
-      "nota": 4.5
+      "reclutaId": "1",
+      "moduloSkillId": "1",
+      "nota": "4.0",
+      "id": 1
+    },
+    {
+      "reclutaId": "3",
+      "moduloSkillId": "2",
+      "nota": "50",
+      "id": 2
     }
   ]
 }

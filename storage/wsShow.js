@@ -189,6 +189,41 @@ export let wsShow = {
             `
         return plantilla
     },
+    showRegistroEvaluacion(arg){
+        let plantilla = `
+        <div>
+        <h2>Registro de las Evaluaciones</h2>
+        
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE REACLUTA</th>
+                        <th>MODULO</th>
+                        <th>NOTA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                ${arg.map((val,id) => {
+                    let partPlantilla = `
+                    <tr>
+                        <td>${val.id}</td>
+                        <td>${val.recluta.nameRecluta}</td>
+                        <td>${val.moduloSkill.nombre}</td>
+                        <td>${val.nota}</td>
+                        <td><button class="eliminar" id="${val.id}">Eliminar</button></td>
+                    </tr>
+                    `
+                    return partPlantilla
+                }).join("")}
+                    
+                    
+                </tbody>
+            </table>
+        </div>
+            `
+        return plantilla
+    },
 }
 
 self.addEventListener("message", (e) => {

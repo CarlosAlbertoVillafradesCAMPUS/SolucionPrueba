@@ -1,3 +1,4 @@
+<div class="principal">
 <fieldset>
     <h2>Agregar Team</h2>
     <form id="formularioTeams">
@@ -22,9 +23,28 @@
     </form>
    
 </fieldset>
-<div class="registro">
-    
+<div class="containerRegistro">
+    <div class="containerFiltros">
+        <div style="width: 100%;">
+            <div style="width: 100%; position:relative">
+                    <input class="btnVolver" type="button" value="Volver">
+                <div style="width: 100%; display:flex; justify-content:center">
+                    <h2>Filtros</h2>
+                </div>
+            </div>    
+        </div>
+        <div class="containerInputFiltro">
+            <div style="display: flex; justify-content:center;">
+                <input type="buscar" placeholder="Buscar Team" id="buscador">
+            </div>
+    </div>   
+        
+    <div class="registro">
+        
+    </div>
 </div>
+</div>
+
 
 <style>
      fieldset{
@@ -39,7 +59,6 @@
     }
     .registro{
         width: 100%;
-        
         display: grid;
         place-content: center;
     }
@@ -70,6 +89,9 @@
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     }
+    .containerRegistro{
+        display: none;
+    }
     .containerButtons{
         margin-top: 10px;
         display: flex;
@@ -94,6 +116,13 @@
         background-color: #25227ed2;
         color: white;
         transition: all .5s ease;
+    }
+    #buscador{
+        width: 21rem;
+        height: 25px;
+        margin: 10px 0;
+        font-size: 1rem;
+        border-radius: 8px;
     }
     .titleRegistro{
         font-size: 2rem;
@@ -137,5 +166,24 @@ tr:nth-child(odd) td{
 .eliminar:hover{
     background-color: white;
     color: #25227ed2;
+}
+.btnVolver{
+    position:absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #25227ed2;
+    color: white;
+    transition: all .5s ease;
+    margin-bottom: 10px;
+}
+.btnVolver:hover{
+    cursor: pointer;
+    background-color:white;
+    color: #25227ed2;
+    transition: all .5s ease;
 }
 </style>

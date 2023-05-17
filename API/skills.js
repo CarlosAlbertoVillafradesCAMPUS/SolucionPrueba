@@ -23,11 +23,20 @@ const DeleteSkill = async (id) => {
         method: "DELETE",
         headers: headers,
     }
-    return await( await fetch(`http://localhost:${puerto}/Skills/${id}`, config)).json()
+    return await( await fetch(`http://localhost:${puerto}/skills/${id}`, config)).json()
+}
+
+const FilterSkill = async (info) => {
+    const config = {
+        method: "GET",
+        headers: headers,
+    }
+    return await( await fetch(`http://localhost:${puerto}/skills?nombre_like=${info}`, config)).json()
 }
 
 export default {
     PostSkill,
     GetSkill,
-    DeleteSkill
+    DeleteSkill,
+    FilterSkill
 }

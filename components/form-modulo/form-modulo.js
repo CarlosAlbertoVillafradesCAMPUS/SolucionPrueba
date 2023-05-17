@@ -9,6 +9,14 @@ export default class formModulo extends HTMLElement{
         this.attachShadow({mode: "open"});
        
     } 
+    handleFilter(e){
+        if(e.type === "input"){
+           this.search(e)
+       }else{
+           this.volverForm();
+       }
+   }
+
     handleEliminar(e){
         (e.type === "click")
         ? this.eliminarModulo(e)
@@ -18,6 +26,40 @@ export default class formModulo extends HTMLElement{
         (e.type === "submit")
         ?this.agregarModulo(e) 
         :this.mostrarModulo(e)
+    }
+
+    volverForm(){
+        this.fidelset.style.display = "block"
+        this.containerRegistro.style.display = "none"
+    }
+
+    search(e){
+        let valueInput = e.target.value;
+        if(e.target.value == ""){
+            this.mostrarModulo()
+        }else{
+            const wsModulo = new Worker("storage/wsModulo.js", {type:"module"})
+        wsModulo.postMessage({function:"FilterModulo", data: valueInput})
+
+        wsModulo.addEventListener("message", (evento) => {
+            console.log(evento.data);
+            const wsShow = new Worker("storage/wsShow.js", {type:"module"});
+            wsShow.postMessage({function:"showRegistroModulo", data: evento.data})
+            wsShow.addEventListener("message", (event) => {
+                this.resgistro = this.shadowRoot.querySelector(".registro");
+                this.resgistro.innerHTML = event.data
+                wsShow.terminate();
+                this.eliminar = this.shadowRoot.querySelectorAll(".eliminar");
+                this.eliminar.forEach((val,id) => {
+                
+                    val.addEventListener("click", this.handleEliminar.bind(this))
+                })
+                
+            })
+            wsModulo.terminate()
+        })
+        }
+        
     }
 
     /* filtrarSkills(e){
@@ -76,6 +118,10 @@ export default class formModulo extends HTMLElement{
             const wsShow = new Worker("storage/wsShow.js", {type:"module"});
             wsShow.postMessage({function:"showRegistroModulo", data: e.data})
             wsShow.addEventListener("message", (event) => {
+                this.fidelset = this.shadowRoot.querySelector("fieldset");
+                this.fidelset.style.display = "none"
+                this.containerRegistro = this.shadowRoot.querySelector(".containerRegistro");
+                this.containerRegistro.style.display = "block"
                 this.resgistroModulos = this.shadowRoot.querySelector(".registro");
                 this.resgistroModulos.innerHTML = event.data
                 wsShow.terminate();
@@ -89,7 +135,7 @@ export default class formModulo extends HTMLElement{
             wsModulo.terminate()
         })
     }
-    showSkillsFilter(){
+    SkillsFilter(){
         const wsSkill = new Worker("storage/wsSkill.js", {type:"module"})
         wsSkill.postMessage({function:"GetSkill"})
 
@@ -107,7 +153,7 @@ export default class formModulo extends HTMLElement{
         })
         
     }
-    showSkills(){
+    Skills(){
         const wsSkill = new Worker("storage/wsSkill.js", {type:"module"})
         wsSkill.postMessage({function:"GetSkill"})
 
@@ -151,8 +197,12 @@ export default class formModulo extends HTMLElement{
             this.myFormulario.addEventListener("submit", this.handleEvent.bind(this));
             this.btnRegistro = this.shadowRoot.querySelector("#btnRegistro");
             this.btnRegistro.addEventListener("click", this.handleEvent.bind(this))
-            this.showSkills()
-            this.showSkillsFilter()
+            this.buscador = this.shadowRoot.querySelector("#buscador");
+            this.buscador.addEventListener("input", this.handleFilter.bind(this));
+            this.btnVolver = this.shadowRoot.querySelector(".btnVolver");
+            this.btnVolver.addEventListener("click", this.handleFilter.bind(this) )
+            this.Skills()
+            this.SkillsFilter()
         })
     }
 }

@@ -25,9 +25,17 @@ const DeleteTeam = async (id) => {
     }
     return await( await fetch(`http://localhost:${puerto}/teams/${id}`, config)).json()
 }
+const FilterTeam = async (info) => {
+    const config = {
+        method: "GET",
+        headers: headers,
+    }
+    return await( await fetch(`http://localhost:${puerto}/teams?nombre_like=${info}`, config)).json()
+}
 
 export default {
     PostTeam,
     GetTeams,
-    DeleteTeam
+    DeleteTeam,
+    FilterTeam
 }

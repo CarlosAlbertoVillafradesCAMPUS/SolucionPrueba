@@ -7,7 +7,7 @@ const PostModulo = async (data) => {
         headers: headers,
         body: JSON.stringify(data)
     }
-    return await( await fetch(`http://localhost:${puerto}/moduloSkill`, config)).json()
+    return await( await fetch(`http://localhost:${puerto}/moduloSkills`, config)).json()
 }
 
 const GetModulo = async () => {
@@ -15,7 +15,7 @@ const GetModulo = async () => {
         method: "GET",
         headers: headers,
     }
-    return await( await fetch(`http://localhost:${puerto}/moduloSkill`, config)).json()
+    return await( await fetch(`http://localhost:${puerto}/moduloSkills`, config)).json()
 }
 
 const DeleteModulo = async (id) => {
@@ -23,11 +23,19 @@ const DeleteModulo = async (id) => {
         method: "DELETE",
         headers: headers,
     }
-    return await( await fetch(`http://localhost:${puerto}/moduloSkill/${id}`, config)).json()
+    return await( await fetch(`http://localhost:${puerto}/moduloSkills/${id}`, config)).json()
+}
+const FilterModulo = async (info) => {
+    const config = {
+        method: "GET",
+        headers: headers,
+    }
+    return await( await fetch(`http://localhost:${puerto}/moduloSkills?nombre_like=${info}`, config)).json()
 }
 
 export default {
     PostModulo,
     GetModulo,
-    DeleteModulo
+    DeleteModulo,
+    FilterModulo
 }
